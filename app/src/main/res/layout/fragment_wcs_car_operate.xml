@@ -1,0 +1,262 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pc2.general.fragment.WcsCarOperateFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/fragment_top"
+            />
+
+        <ScrollView
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:gravity="center"
+                    android:id="@+id/tv_checkCarStatus"
+                    android:text="@string/wcs_check_car_status"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/tv_checkPodStatus"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/other_Check_the_POD_information"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="visible"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/tv_checkAddrStatus"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/other_Check_address_status"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/tv_resendOrder"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/wcs_resend_order"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <Button
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_updateRobotStatus"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/other_Update_the_car_available"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_robotOffline"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/other_Offline_agv"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_drivePod"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/other_Drive_the_pod_to_the_target_point"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_updatePodStatus"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/other_Update_the_pod_address"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_releasePodStatus"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/other_Release_pod_status"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="visible"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_updateAddrState"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:textAllCaps="false"
+                    android:text="@string/other_Update_address_state"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_robot2Charge"
+                    android:textColor="@android:color/white"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="@string/wcs_robot2Charge"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_autoDrivePod"
+                    android:textColor="@android:color/white"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="@string/wcs_autoAssignAdnDrivePod"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_driveRobotCarryPod"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/wcs_driveRobotCarryPod"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_driveRobot"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/wcs_driveRobot"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="visible"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_clearChargeError"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/other_Clear_the_charging_pile_fault"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_updatePodOnMap"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="更新货架到地图上\n（仅限空货架位于通道上使用该功能）"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_speedlogFinishTripByRobot"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/wcs_speedlog_finish_trip_by_robot"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:id="@+id/btn_speedlogFinishTripByPod"
+                    android:textColor="@color/colorAccent"
+                    android:foreground="@drawable/water_ripple_foreground"
+                    android:background="@drawable/button_shape_white"
+                    android:text="@string/wcs_speedlog_finish_trip_by_pod"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
