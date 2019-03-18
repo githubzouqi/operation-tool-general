@@ -289,22 +289,22 @@
     <!--<string name="url_root">http://192.168.1.201:12009/wcs/</string>&lt;!&ndash; 苏州环境 接口地址的协议、服务器地址和相同大路径部分&ndash;&gt;-->
     <string name="url_resendThePath">/wcs/resendOrder?</string><!-- 重发路径-->
     <string name="url_carMoveOneGrid">/wcs/robotAct?</string><!-- 小车移动一格-->
-    <string name="url_checkCarState">/wcs/checkRobotStatus?</string><!-- 检查小车状态-->
+    <string name="url_checkCarState">/wcs/checkRobotStatus?</string><!-- 查看某小车的状态 wcs public-->
     <string name="url_showPod">/wcs/callNewPod?</string><!-- 显示当前过来的POD和面-->
     <string name="url_releasePod">/wcs/podRelease?</string><!-- 工作站释放pod-->
-    <string name="url_updatePodPos">/wcs/updatePodStatus?</string><!-- 更新pod的实际位置-->
-    <string name="url_checkPodStatus">/wcs/checkPodStatus?</string><!-- 查看pod信息-->
-    <string name="url_checkAddrStatus">/wcs/checkAddrState?</string><!-- 查看地址状态-->
+    <string name="url_updatePodPos">/wcs/updatePodStatus?</string><!-- 更新pod的地址 wcs public-->
+    <string name="url_checkPodStatus">/wcs/checkPodStatus?</string><!-- 查看pod信息 wcs public-->
+    <string name="url_checkAddrStatus">/wcs/checkAddrState?</string><!-- 查看地址状态 wcs public-->
     <string name="url_resendOrder">/wcs/resendOrder?</string><!-- 重发任务-->
-    <string name="url_robotOffline">/wcs/robotOffline?</string><!-- 下线某小车-->
-    <string name="url_drivePod">/wcs/drivePod?</string><!-- 驱动pod去某地-->
+    <string name="url_robotOffline">/wcs/robotOffline?</string><!-- 下线某小车 wcs public-->
+    <string name="url_drivePod">/wcs/drivePod?</string><!-- 驱动pod去目标点位（可用存储区）wcs public-->
     <string name="url_driveRobot">/wcs/driveRobot?</string><!-- 驱动小车去某地-->
-    <string name="url_releasePodStatus">/wcs/updatePodStatus?</string><!-- 释放pod状态-->
-    <string name="url_updateAddrState">/wcs/updateAddrState?</string><!-- 更新地址状态-->
+    <string name="url_releasePodStatus">/wcs/updatePodStatus?</string><!-- 释放pod状态 wcs public-->
+    <string name="url_updateAddrState">/wcs/updateAddrState?</string><!-- 更新地址状态 wcs public-->
     <string name="url_robot2Charge">/wcs/robot2Charge?</string><!-- 下发充电任务-->
     <string name="url_autoAssignAdnDrivePod">/wcs/autoAssignAdnDrivePod?</string><!-- 自动分配pod回存储区-->
     <string name="url_driveRobotCarryPod">/wcs/driveRobotCarryPod?</string><!-- 驱动小车驮pod去某地-->
-    <string name="url_updateRobotStatus">/wcs/updateRobotStatus?</string><!-- 更新小车-->
+    <string name="url_updateRobotStatus">/wcs/updateRobotStatus?</string><!-- 更新小车 wcs public-->
     
     <!--史必诺特有接口-->
     <string name="url_speedlog_finishTripByRobot">/wcs/finishTripByRobot?</string><!-- 根据小车id来结束调度任务-->
