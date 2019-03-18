@@ -82,6 +82,7 @@ captures/
 
 .idea/libraries
 
+.idea
 
 
 # Keystore files
@@ -127,4 +128,7 @@ fastlane/screenshots
 fastlane/test_output
 
 fastlane/readme.md
-.idea
+
+# .DS_Store
+
+.DS_Store

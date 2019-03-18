@@ -282,11 +282,7 @@
     <string name="wcs_driveRobot">驱动小车去某地</string>
 
 
-    <!-- 接口地址-->
-    <!--<string name="url_root">http://192.168.2.11:12009/wcs/</string>&lt;!&ndash; 接口地址的协议、服务器地址和相同大路径部分&ndash;&gt;-->
-    <!--<string name="url_root">http://172.23.43.1:12009/wcs/</string>&lt;!&ndash; 苏宁环境 接口地址的协议、服务器地址和相同大路径部分&ndash;&gt;-->
-    <!--<string name="url_root">http://192.168.1.249:12008/wcs/</string>&lt;!&ndash; 西安环境 接口地址的协议、服务器地址和相同大路径部分&ndash;&gt;-->
-    <!--<string name="url_root">http://192.168.1.201:12009/wcs/</string>&lt;!&ndash; 苏州环境 接口地址的协议、服务器地址和相同大路径部分&ndash;&gt;-->
+    <!-- wcs api -->
     <string name="url_resendThePath">/wcs/resendOrder?</string><!-- 重发路径-->
     <string name="url_carMoveOneGrid">/wcs/robotAct?</string><!-- 小车移动一格-->
     <string name="url_checkCarState">/wcs/checkRobotStatus?</string><!-- 查看某小车的状态 wcs public-->
