@@ -85,6 +85,7 @@ public class ProgressBarUtil {
     public static void dissmissProgressBar(){
         if (dialog != null){
             dialog.dismiss();
+            dialog = null;
         }
     }
 

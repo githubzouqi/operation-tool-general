@@ -226,7 +226,7 @@
 
 
                 <Button
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_marginTop="2dp"
                     android:gravity="center"
                     android:id="@+id/btn_speedlogFinishTripByRobot"
@@ -239,7 +239,7 @@
                     android:layout_height="wrap_content" />
 
                 <Button
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_marginTop="2dp"
                     android:gravity="center"
                     android:id="@+id/btn_speedlogFinishTripByPod"

@@ -2,10 +2,10 @@
     <!--Start-->
 
     <!--应用程序名称-->
-    <string name="app_name">源汇地图</string>
+    <string name="app_name">工厂地图</string>
 
     <!--activity_splash.xml-->
-    <string name="splash_slogan">源汇地图\n智能监控</string>
+    <string name="splash_slogan">工厂地图\n智能监控</string>
     <string name="splash_mushiny">牧星智能</string>
 
     <!--MainActivity-->
@@ -86,6 +86,7 @@
     <string name="boxfragment_Workstation_release_pod_success">工作站释放pod成功</string>
     <string name="boxfragment_Pod_release_results_returned_empty">pod释放返回结果为空</string>
     <string name="boxfragment_Pod_release_failed">pod释放失败</string>
+    <string name="boxfragment_Charging_pile_state_data_parsing_exceptions">充电桩状态数据解析异常：</string>
 
     <!--CarBatteryInfoFragment-->
     <string name="battery_fragment_no_car">暂无小车</string>
@@ -190,6 +191,7 @@
     <string name="str_step1">连接RabbitMQ</string>
     <string name="str_fault_tips">故障提示</string>
     <string name="str_Solve_the_problem">问题是否解决？</string>
+    <string name="fragment_box_charging_pile_state">充电桩状态</string>
 
     <!--fragment_wcs_car_operate.xml-->
     <string name="wcs_check_car_status">查看某小车的状态</string>
@@ -221,6 +223,9 @@
     <!--view_error.xml-->
     <string name="str_Error_feedback">错误反馈</string>
 
+    <!--dialog_view_all_charger_status-->
+    <string name="charger_status_title">所有充电桩状态查看</string>
+    <string name="charger_status_content">请您耐心等待......</string>
     <!-- End -->
 
 

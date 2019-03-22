@@ -20,10 +20,10 @@ public class Constants {
     /**======*/
     // https://api.mushiny.com/wcs/checkRobotStatus?sectionId=ec229eb7-7e2b-43a8-b1c7-91bd807e91cf&robotId=6
     public static final String HTTP = "http://";// http请求 源汇版（不同工厂版，该值需要进行修改）
-    public static String ROOT_ADDRESS = "192.168.1.101:12009";// 接口地址 源汇版（不同工厂版，该值需要进行修改）
+    public static String ROOT_ADDRESS = "192.168.1.202:12009";// 接口地址 源汇版（不同工厂版，该值需要进行修改）
 
     // RabbitMQ连接所需信息
-    public static String MQ_HOST = "192.168.1.101";// MQ主机地址 源汇版（不同工厂版，该值需要进行修改）
+    public static String MQ_HOST = "192.168.1.202";// MQ主机地址 源汇版（不同工厂版，该值需要进行修改）
     public static int MQ_PORT = 5672;// MQ端口号：源汇版（不同工厂版，该值需要进行修改）
     public static String MQ_USERNAME = "mushiny";// MQ用户名 源汇版（不同工厂版，该值需要进行修改）
     public static String MQ_PASSWORD = "mushiny";// MQ密码 源汇版（不同工厂版，该值需要进行修改）
@@ -92,4 +92,7 @@ public class Constants {
 
     // 改变货架的位置（将位于通道的货架更新到地图上，防止重车撞货架）
     public static final String MQ_ROUTINGKEY_CHANGING_POD_POSITION = "WCS_RCS_CHANGING_POD_POSITION";
+
+    // 所有充电桩的状态
+    public static final String MQ_ROUTINGKEY_CHARGING_PILE_WCS_CHARGERS_INFO_RESPONSE = "CHARGING_PILE_WCS_CHARGERS_INFO_RESPONSE";
 }

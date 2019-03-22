@@ -374,7 +374,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/linear_map_rcs"
+                        android:id="@+id/linear_map_charging_pile_state"
                         android:visibility="gone"
                         android:background="@drawable/map_introduction_selector"
                         android:layout_marginRight="6dp"
@@ -390,12 +390,12 @@
                         <ImageView
                             android:layout_margin="2dp"
                             android:id="@+id/iv_map_rcs"
-                            android:src="@mipmap/icon_rcs"
+                            android:src="@mipmap/charger_state"
                             android:layout_width="30dp"
                             android:layout_height="30dp" />
                         <TextView
                             android:textSize="6sp"
-                            android:text="RCS部分"
+                            android:text="@string/fragment_box_charging_pile_state"
                             android:textColor="@android:color/black"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center"
