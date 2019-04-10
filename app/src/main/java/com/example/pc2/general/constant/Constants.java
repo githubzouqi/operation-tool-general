@@ -20,13 +20,13 @@ public class Constants {
     /**======*/
     // https://api.mushiny.com/wcs/checkRobotStatus?sectionId=ec229eb7-7e2b-43a8-b1c7-91bd807e91cf&robotId=6
     public static final String HTTP = "http://";// http请求 源汇版（不同工厂版，该值需要进行修改）
-    public static String ROOT_ADDRESS = "api.mushiny.com";// 接口地址 源汇版（不同工厂版，该值需要进行修改）
+    public static String ROOT_ADDRESS = "192.168.1.200:12009";// 接口地址 源汇版（不同工厂版，该值需要进行修改）
 
     // RabbitMQ连接所需信息
-    public static String MQ_HOST = "52.83.227.228";// MQ主机地址 源汇版（不同工厂版，该值需要进行修改）
-    public static int MQ_PORT = 5672;// MQ端口号：源汇版（不同工厂版，该值需要进行修改）
-    public static String MQ_USERNAME = "nt_yuan_hui";// MQ用户名 源汇版（不同工厂版，该值需要进行修改）
-    public static String MQ_PASSWORD = "yhYHzaq";// MQ密码 源汇版（不同工厂版，该值需要进行修改）
+    public static String MQ_HOST = "192.168.1.200";// MQ主机地址 （不同工厂版，该值需要进行修改）
+    public static int MQ_PORT = 5672;// MQ端口号（不同工厂版，该值需要进行修改）
+    public static String MQ_USERNAME = "mushiny";// MQ用户名 （不同工厂版，该值需要进行修改）
+    public static String MQ_PASSWORD = "mushiny";// MQ密码 （不同工厂版，该值需要进行修改）
     /**======*/
 
     public static final int DEFAULT_BOX_SIZE = 45;// 设置地图绘制时格子的默认大小
