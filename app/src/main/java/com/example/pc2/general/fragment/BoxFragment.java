@@ -97,7 +97,7 @@ import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
- * 格子图主界面
+ * 监控地图主界面（采用的是自定义view绘制，在布局中引用自定义view来实现）
  */
 public class BoxFragment extends BaseFragment {
 
@@ -389,6 +389,7 @@ public class BoxFragment extends BaseFragment {
                     // 仓库初始化完成，中断消费线程
                     if(subscribeThread_storageMap != null){
                         subscribeThread_storageMap.interrupt();
+                        subscribeThread_storageMap = null;
                     }
 
                     new AlertDialog.Builder(getContext())
@@ -649,6 +650,7 @@ public class BoxFragment extends BaseFragment {
                         threadCheckChargerStatus = null;
                     }
                     dialog_all_charger_status = null;
+                    view_all_charger_status = null;
                 }
             });
         }
@@ -691,8 +693,8 @@ public class BoxFragment extends BaseFragment {
             }
 
             for (int j = 0;j < chargerStatusEntities.size();j++){
-                str_all_charger_status += "类型为 " + chargerStatusEntities.get(j).getType()
-                        + " 的 " + chargerStatusEntities.get(j).getId() + " 号充电桩："
+                str_all_charger_status += chargerStatusEntities.get(j).getId() + " 号充电桩（"
+                + "类型为 " + chargerStatusEntities.get(j).getType() + "）："
                         + chargerStatusEntities.get(j).getStatusName() + "（"
                         + chargerStatusEntities.get(j).getErrorName() + "）" + "\n";
             }
@@ -2158,6 +2160,8 @@ public class BoxFragment extends BaseFragment {
             long robotID = Long.parseLong(String.valueOf(mapCar.get("robotID")));// 小车id
 
             float podAngle = Float.parseFloat(String.valueOf(mapCar.get("podCodeInfoTheta")));// pod的角度，0°朝上，90°朝右，依次类推180°和270°
+            String str_podAngle = String.valueOf(podAngle);
+            int int_podAngle = Integer.parseInt(str_podAngle.substring(0, str_podAngle.indexOf(".")));
 
             // 如果为0，则小车没有装载pod；如果非0，则小车装载了该pod。该值表示pod的id
             long podCodeID = Long.parseLong(String.valueOf(mapCar.get("podCodeID")));
@@ -2183,7 +2187,7 @@ public class BoxFragment extends BaseFragment {
                         PodEntity podEntity = new PodEntity();
                         podEntity.setPodId(newPodId);
                         podEntity.setPodPos(newPodPos);
-                        podEntity.setPodAngle(Integer.parseInt(String.valueOf(podAngle)));
+                        podEntity.setPodAngle(int_podAngle);
                         // 往集合中添加这个新的pod
                         podList.add(i, podEntity);
                     }
@@ -2195,7 +2199,7 @@ public class BoxFragment extends BaseFragment {
                     PodEntity podEntity = new PodEntity();
                     podEntity.setPodId(newPodId);
                     podEntity.setPodPos(newPodPos);
-                    podEntity.setPodAngle(Integer.parseInt(String.valueOf(podAngle)));
+                    podEntity.setPodAngle(int_podAngle);
                     // 直接添加该PodEntity对象到podList集合中
                     podList.add(podEntity);
                 }
@@ -2322,7 +2326,10 @@ public class BoxFragment extends BaseFragment {
 
                 break;
             case R.id.linear_map_drawAgain:// 重新选择仓库和地图
-                interruptThread(publishThread);
+                if (publishThread != null){
+                    publishThread.interrupt();
+                    publishThread = null;
+                }
                 setUpConnectionFactory();// 连接设置
                 subscribeStorageMap(inComingMessageHandler);// 先创建队列接收仓库地图的数据
 //                publishToAMPQ(Constants.MQ_EXCHANGE_STORAGEMAP, Constants.MQ_ROUTINGKEY_STORAGEMAP_REQUEST);// publish消息给请求队列
@@ -3187,7 +3194,11 @@ public class BoxFragment extends BaseFragment {
         interruptThread(threadShowAllCarCurrentPath);
         closeConnection(connection_showAllCarCurrentPath);
 
-        interruptThread(publishThread);// 中断发布消息线程
+        // 中断发布消息线程
+        if(publishThread != null){
+            publishThread.interrupt();
+            publishThread = null;
+        }
 
         // 清空锁格/解锁操作时用户点击地图上的格子点位集合并去除对应标识
         lock_unlock_pos.clear();
@@ -3210,8 +3221,15 @@ public class BoxFragment extends BaseFragment {
                 .setPositiveButton(getResources().getString(R.string.boxfragment_cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        interruptThread(publishThread);// 中断发布线程
-                        interruptThread(subscribeThread_storageMap);// 中断消费线程
+                        if(publishThread != null){
+                            publishThread.interrupt();
+                            publishThread = null;
+                        }
+                        // 中断消费线程
+                        if (subscribeThread_storageMap != null){
+                            subscribeThread_storageMap.interrupt();
+                            subscribeThread_storageMap = null;
+                        }
                         dialog.dismiss();
                     }
                 }).create().show();
@@ -3293,10 +3311,13 @@ public class BoxFragment extends BaseFragment {
                     connection_storageMap = factory.newConnection();
                     Channel channel = connection_storageMap.createChannel();
                     channel.basicQos(1);
-                    String queueName = System.currentTimeMillis() + "queueNameStorageMap";
+
+//                    String queueName = System.currentTimeMillis() + "QN_StorageMap";
+                    String queueName = Constants.MQ_QUEUENAME_STORAGEMAP_RESPONSE;
                     channel.exchangeDeclare(Constants.MQ_EXCHANGE_STORAGEMAP, "direct", true);
-                    AMQP.Queue.DeclareOk q = channel.queueDeclare(queueName, true, false, true, null);
-                    channel.queueBind(q.getQueue(), Constants.MQ_EXCHANGE_STORAGEMAP, Constants.MQ_ROUTINGKEY_STORAGEMAP_RESPONSE);
+//                    AMQP.Queue.DeclareOk q = channel.queueDeclare(queueName, true, false, true, null);
+//                    channel.queueBind(q.getQueue(), Constants.MQ_EXCHANGE_STORAGEMAP, Constants.MQ_ROUTINGKEY_STORAGEMAP_RESPONSE);
+                    channel.queueBind(queueName, Constants.MQ_EXCHANGE_STORAGEMAP, Constants.MQ_ROUTINGKEY_STORAGEMAP_RESPONSE);
                     Consumer consumer = new DefaultConsumer(channel){
                         @Override
                         public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
@@ -3320,7 +3341,8 @@ public class BoxFragment extends BaseFragment {
 
                         }
                     };
-                    channel.basicConsume(q.getQueue(), true, consumer);
+//                    channel.basicConsume(q.getQueue(), true, consumer);
+                    channel.basicConsume(queueName, true, consumer);
                 }catch (Exception e){
                     ProgressBarUtil.dissmissProgressBar();
                     e.printStackTrace();
@@ -3550,6 +3572,7 @@ public class BoxFragment extends BaseFragment {
                     String exchangeMap = Constants.EXCHANGE;// 交换机名称
 
                     channel.exchangeDeclare(exchangeMap, "direct", true);
+
                     String queueName = System.currentTimeMillis() + "queueNameMap";// 客户端随机生成队列名称
                     // 声明一个可共享队列（消息不会被该队列所独占，不会被限制在这个连接中）
                     AMQP.Queue.DeclareOk qMap = channel.queueDeclare(queueName, true, false, true, null);
@@ -4198,17 +4221,51 @@ public class BoxFragment extends BaseFragment {
         ToastUtil.showToast(getContext(),"onDestory");
         super.onDestroy();
         // fragment销毁后，也把线程中断
-        interruptThread(subscribeThread);
-        interruptThread(threadMapData);
-        interruptThread(threadShowAllCarCurrentPath);
-        interruptThread(publishThread);
-        interruptThread(subscribeThread_storageMap);
-        interruptThread(threadChargingTask);
-        interruptThread(threadProblemFeedback);
-        interruptThread(threadNoMoveTimeout);
-        interruptThread(threadErrorCloseConnection);
-        interruptThread(threadChargingError);
-        interruptThread(threadCheckChargerStatus);
+        if (subscribeThread != null){
+            subscribeThread.interrupt();
+            subscribeThread = null;
+        }
+        if (threadMapData != null){
+            threadMapData.interrupt();
+            threadMapData = null;
+        }
+        if (threadShowAllCarCurrentPath != null){
+            threadShowAllCarCurrentPath.interrupt();
+            threadShowAllCarCurrentPath = null;
+        }
+        if (publishThread != null){
+            publishThread.interrupt();
+            publishThread = null;
+        }
+        if (subscribeThread_storageMap != null){
+            subscribeThread_storageMap.interrupt();
+            subscribeThread_storageMap = null;
+        }
+        if (threadChargingTask != null){
+            threadChargingTask.interrupt();
+            threadChargingTask = null;
+        }
+        if (threadProblemFeedback != null){
+            threadProblemFeedback.interrupt();
+            threadProblemFeedback = null;
+        }
+        if (threadNoMoveTimeout != null){
+            threadNoMoveTimeout.interrupt();
+            threadNoMoveTimeout = null;
+        }
+        if (threadErrorCloseConnection != null){
+            threadErrorCloseConnection.interrupt();
+            threadErrorCloseConnection = null;
+        }
+        if (threadChargingError != null){
+            threadChargingError.interrupt();
+            threadChargingError = null;
+        }
+        if (threadCheckChargerStatus != null){
+            threadCheckChargerStatus.interrupt();
+            threadCheckChargerStatus = null;
+        }
+
         if(requestQueue != null){
             requestQueue.stop();// 停止缓存和网络调度程序
         }

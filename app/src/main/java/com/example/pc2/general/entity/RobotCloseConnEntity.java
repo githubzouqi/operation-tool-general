@@ -13,7 +13,7 @@ public class RobotCloseConnEntity implements Parcelable {
     private int robotID;// 小车的id
     private String ip;// ip地址
     private int port;// 端口
-    private long time;// 小车断开连接故障时间
+    private long time;// 小车断开连接故障上报时间
 
     public RobotCloseConnEntity() {
     }

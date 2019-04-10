@@ -3,6 +3,9 @@ package com.example.pc2.general.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * 查看所有充电桩状态返回的数据实体
+ */
 public class ChargerStatusEntity implements Parcelable {
 
     /**

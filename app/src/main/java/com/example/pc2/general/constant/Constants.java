@@ -20,13 +20,13 @@ public class Constants {
     /**======*/
     // https://api.mushiny.com/wcs/checkRobotStatus?sectionId=ec229eb7-7e2b-43a8-b1c7-91bd807e91cf&robotId=6
     public static final String HTTP = "http://";// http请求 源汇版（不同工厂版，该值需要进行修改）
-    public static String ROOT_ADDRESS = "192.168.1.202:12009";// 接口地址 源汇版（不同工厂版，该值需要进行修改）
+    public static String ROOT_ADDRESS = "api.mushiny.com";// 接口地址 源汇版（不同工厂版，该值需要进行修改）
 
     // RabbitMQ连接所需信息
-    public static String MQ_HOST = "192.168.1.202";// MQ主机地址 源汇版（不同工厂版，该值需要进行修改）
+    public static String MQ_HOST = "52.83.227.228";// MQ主机地址 源汇版（不同工厂版，该值需要进行修改）
     public static int MQ_PORT = 5672;// MQ端口号：源汇版（不同工厂版，该值需要进行修改）
-    public static String MQ_USERNAME = "mushiny";// MQ用户名 源汇版（不同工厂版，该值需要进行修改）
-    public static String MQ_PASSWORD = "mushiny";// MQ密码 源汇版（不同工厂版，该值需要进行修改）
+    public static String MQ_USERNAME = "nt_yuan_hui";// MQ用户名 源汇版（不同工厂版，该值需要进行修改）
+    public static String MQ_PASSWORD = "yhYHzaq";// MQ密码 源汇版（不同工厂版，该值需要进行修改）
     /**======*/
 
     public static final int DEFAULT_BOX_SIZE = 45;// 设置地图绘制时格子的默认大小
@@ -53,6 +53,7 @@ public class Constants {
     public static final String MQ_EXCHANGE_STORAGEMAP = "ANY_WAREHOUSE_INIT";// 交换机名称
     public static final String MQ_ROUTINGKEY_STORAGEMAP_REQUEST = "ANY_WCS_WAREHOUSE_INIT_REQUEST";// 发布消息所绑定的路由键
     public static final String MQ_ROUTINGKEY_STORAGEMAP_RESPONSE = "WCS_ANY_WAREHOUSE_INIT_RESPONSE";// 获取消息所绑定的路由键
+    public static final String MQ_QUEUENAME_STORAGEMAP_RESPONSE = "WCS_ANY_WAREHOUSE_INIT_RESPONSE";// 队列名
 
     public static final String MQ_ROUTINGKEY_CARPATH = "RCS_WCS_RESPONSE_ALL_AGV_INFO";// 获取小车锁格和尚未锁格的路径消息的路由键
 
@@ -73,7 +74,7 @@ public class Constants {
 
     // 小车位置不改变超时
 //    public static final String MQ_EXCHANGE_NOMOVE_TIMEOUT = "";
-    public static final String MQ_ROUTINGKEY_NOMOVE_TIMEOUT = "RCS_WCS_AGV_NOMOVE_TIMEOUT";
+    public static final String MQ_ROUTINGKEY_NOMOVE_TIMEOUT = "RCS_WCS_AGV_NOMOVE_TIMMEOUT";
 
     // 小车连接断开
     public static final String MQ_ROUTINGKEY_CLOSE_CONNECTION = "RCS_WCS_ROBOT_CLOSE_CONNECTION";
